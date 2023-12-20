@@ -54,3 +54,9 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
+<style>
+:root {
+  scroll-behavior: smooth;
+}
+</style>

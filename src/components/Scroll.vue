@@ -242,15 +242,14 @@ const handleScroll = () => {
   const currentTime = videoPlayer.value.currentTime;
   const deltaScrollY = window.scrollY - lastScrollY;
 
-  // Ajusta la posición del video en función del desplazamiento
-  videoPlayer.value.currentTime = currentTime + deltaScrollY / 100; // Ajusta el divisor según sea necesario
+  videoPlayer.value.currentTime = currentTime + deltaScrollY / 50;
 
   lastScrollY = window.scrollY;
 };
 
 const handleResize = () => {
-  // Actualiza la posición del video al cambiar el tamaño de la ventana
-  videoPlayer.value.currentTime = window.scrollY / 100; // Ajusta el divisor según sea necesario
+ 
+  videoPlayer.value.currentTime = window.scrollY / 50; 
 };
 
 onMounted(() => {
@@ -265,7 +264,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style>
-/* Oculta los controles del reproductor de video */
+
 video {
   outline: none; /* Elimina el contorno enfocado en algunos navegadores */
   pointer-events: none; /* Evita la interacción del mouse */
