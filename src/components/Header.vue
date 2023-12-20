@@ -22,7 +22,7 @@ const dropdownNavbar = () => {
       </a>
       <div class="flex md:order-2">
         <button type="button"
-          class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-700 font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-0 ">
+          class="text-indigo-700 bg-cyan-50 hover:bg-cyan-100 focus:ring-4 focus:outline-none focus:ring-blue-700 font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-0 ">
           Contactanos
         </button>
         <button @click="navbarSticky" type="button"
@@ -66,25 +66,25 @@ const dropdownNavbar = () => {
             </button>
             <!-- Dropdown menu -->
             <div :class="`z-10 ${dropdown ? '' : 'hidden'
-              } absolute font-normal bg-blue-500 divide-y divide-indigo-600 rounded-lg shadow w-44`">
-              <ul class="py-2 text-sm text-white" aria-labelledby="dropdownLargeButton">
+              } absolute font-normal bg-cyan-50 divide-y divide-indigo-600 rounded-lg shadow w-44`">
+              <ul class="py-2 text-sm text-indigo-700" aria-labelledby="dropdownLargeButton">
                 <li>
                   <a active-class="block px-4 py-2 bg-blue-600" to="/artesanias"
-                    class="block px-4 py-2 hover:bg-blue-600">Artesanias</a>
+                    class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Artesanias</a>
                 </li>
                 <li>
                   <a active-class="block px-4 py-2 bg-blue-600" to="/obras-artisticas"
-                    class="block px-4 py-2 hover:bg-blue-600">Obras
+                    class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Obras
                     Artisticas</a>
                 </li>
                 <li>
                   <a active-class="block px-4 py-2 bg-blue-600" to="/comida-artesanal"
-                    class="block px-4 py-2 hover:bg-blue-600">Comida
+                    class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Comida
                     Artesanal</a>
                 </li>
               </ul>
               <div class="py-1">
-                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-blue-600">Arte
+                <a href="#" class="block px-4 py-2 text-sm text-indigo-700 hover:bg-blue-600 hover:text-white">Arte
                   Moderno</a>
               </div>
             </div>
