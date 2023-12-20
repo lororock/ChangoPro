@@ -1,11 +1,9 @@
 <script setup>
 import { ref } from "vue";
 
-// Refs para los elementos
 const audioElement = ref(null);
 const isPlaying = ref(false);
 
-// Función para reproducir o pausar el sonido
 const toggleReproduccion = () => {
   if (isPlaying.value) {
     audioElement.value.pause();
@@ -15,7 +13,6 @@ const toggleReproduccion = () => {
   isPlaying.value = !isPlaying.value;
 };
 
-// Agrega un evento para reiniciar la reproducción al finalizar
 audioElement.value?.addEventListener("ended", () => {
   isPlaying.value = false;
 });
