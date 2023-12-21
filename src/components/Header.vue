@@ -17,7 +17,7 @@ const dropdownNavbar = () => {
   <nav class="bg-indigo-600 fixed w-full z-20 top-0 left-0 border-b border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
       <a to="/" class="flex items-center">
-        <img src="../assets/chango1.png" class="h-12 mr-2" alt="Flowbite Logo" />
+        <img src="../assets/chango1.png" class="h-12 mr-2 " />
         <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">ChanGo Pro</span>
       </a>
       <div class="flex md:order-2">
@@ -40,18 +40,18 @@ const dropdownNavbar = () => {
           class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-indigo-700 rounded-lg bg-indigo-600 md:flex-row md:space-x-8 md:mt-0 md:border-0">
           <li>
             <a active-class="block py-2 pl-3 pr-4 text-white bg-blue-500 rounded md:bg-transparent md:text-blue-300 md:p-0"
-              to="/"
+              href="#"
               class="block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-500 md:hover:bg-transparent md:hover:text-blue-300 md:p-0"
               aria-current="page">Inicio</a>
           </li>
           <li>
             <a active-class="block py-2 pl-3 pr-4 text-white bg-blue-500 rounded md:bg-transparent md:text-blue-300 md:p-0"
-              to="/artesanos"
+              href="#"
               class="block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-500 md:hover:bg-transparent md:hover:text-blue-300 md:p-0">Solución</a>
           </li>
           <li>
             <a active-class="block py-2 pl-3 pr-4 text-white bg-blue-500 rounded md:bg-transparent md:text-blue-300 md:p-0"
-              to="/artesanos"
+              href="#"
               class="block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-500 md:hover:bg-transparent md:hover:text-blue-300 md:p-0">Caracteristicas</a>
           </li>
           <li>
@@ -69,23 +69,20 @@ const dropdownNavbar = () => {
               } absolute font-normal bg-cyan-50 divide-y divide-indigo-600 rounded-lg shadow w-44`">
               <ul class="py-2 text-sm text-indigo-700" aria-labelledby="dropdownLargeButton">
                 <li>
-                  <a active-class="block px-4 py-2 bg-blue-600" to="/artesanias"
-                    class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Artesanias</a>
+                  <a active-class="block px-4 py-2 bg-blue-600" href="#"
+                    class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Posicionamiento de marca</a>
                 </li>
                 <li>
-                  <a active-class="block px-4 py-2 bg-blue-600" to="/obras-artisticas"
-                    class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Obras
-                    Artisticas</a>
+                  <a active-class="block px-4 py-2 bg-blue-600" href="#"
+                    class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Campañas mediaticas para eventos</a>
                 </li>
                 <li>
-                  <a active-class="block px-4 py-2 bg-blue-600" to="/comida-artesanal"
-                    class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Comida
-                    Artesanal</a>
+                  <a active-class="block px-4 py-2 bg-blue-600" href="#"
+                    class="block px-4 py-2 hover:bg-blue-600 hover:text-white">???</a>
                 </li>
               </ul>
               <div class="py-1">
-                <a href="#" class="block px-4 py-2 text-sm text-indigo-700 hover:bg-blue-600 hover:text-white">Arte
-                  Moderno</a>
+                <a href="#" class="block px-4 py-2 text-sm text-indigo-700 hover:bg-blue-600 hover:text-white">???</a>
               </div>
             </div>
           </li>
