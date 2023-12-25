@@ -21,7 +21,7 @@ const closeModal = () => {
             <div class="text-center">
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-5xl">Personaliza Tu Paquete</h2>
 
-                <p class="mx-auto mt-4 max-w-sm text-gray-500">
+                <p class="mx-auto mt-4 max-w-xl text-gray-500">
                     reconocemos que cada proyecto es único, al igual que las metas y visiones de nuestros clientes. Es por
                     eso que ofrecemos servicios personalizados diseñados para adaptarse a tus necesidades específicas y
                     llevar tus ideas al siguiente nivel.
