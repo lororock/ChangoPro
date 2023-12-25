@@ -16,7 +16,7 @@ const closeModal = () => {
 </script>
 
 <template>
-    <section class="pt-10 overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2 sm:items-center">
+    <section class="pt-10 overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2 sm:items-center" id="inicio">
         <div class="p-8 md:p-12 lg:px-16 lg:py-24">
             <div class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
                 <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">

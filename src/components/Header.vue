@@ -3,6 +3,7 @@ import { ref } from 'vue'
 
 const downSticky = ref(false);
 const dropdown = ref(false);
+const whatsapp = ref("");
 
 const navbarSticky = () => {
   downSticky.value = !downSticky.value;
@@ -10,6 +11,14 @@ const navbarSticky = () => {
 
 const dropdownNavbar = () => {
   dropdown.value = !dropdown.value;
+};
+
+const changewhatsapp = () => {
+  if (window.innerWidth <= 768) {
+    whatsapp.value = "app";
+  } else {
+    whatsapp.value = "web";
+  }
 };
 </script>
 
@@ -21,10 +30,14 @@ const dropdownNavbar = () => {
         <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">ChanGo Pro</span>
       </a>
       <div class="flex md:order-2">
-        <button type="button"
-          class="text-indigo-700 bg-cyan-50 hover:bg-cyan-100 focus:ring-4 focus:outline-none focus:ring-blue-700 font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-0 ">
-          Contactanos
-        </button>
+        <a :href="`https://${whatsapp}.whatsapp.com/send?phone=%20573114012648&text=Hola+bienvenido+a+ChanGo+Pro`"
+          target="_blank">
+          <button @click="changewhatsapp"
+            class="text-indigo-700 bg-cyan-50 hover:bg-cyan-100 focus:ring-4 focus:outline-none focus:ring-blue-700 font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-0 ">
+            Contactanos
+          </button>
+        </a>
+
         <button @click="navbarSticky" type="button"
           class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-indigo-700 cus:outline-none focus:ring-2 focus:ring-indigo-800">
           <span class="sr-only">Open main menu</span>
@@ -40,18 +53,18 @@ const dropdownNavbar = () => {
           class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-indigo-700 rounded-lg bg-indigo-600 md:flex-row md:space-x-8 md:mt-0 md:border-0">
           <li>
             <a active-class="block py-2 pl-3 pr-4 text-white bg-blue-500 rounded md:bg-transparent md:text-blue-300 md:p-0"
-              href="#"
+              href="#inicio"
               class="block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-500 md:hover:bg-transparent md:hover:text-blue-300 md:p-0"
               aria-current="page">Inicio</a>
           </li>
           <li>
             <a active-class="block py-2 pl-3 pr-4 text-white bg-blue-500 rounded md:bg-transparent md:text-blue-300 md:p-0"
-              href="#"
-              class="block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-500 md:hover:bg-transparent md:hover:text-blue-300 md:p-0">Solución</a>
+              href="#informacion"
+              class="block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-500 md:hover:bg-transparent md:hover:text-blue-300 md:p-0">Informacion</a>
           </li>
           <li>
             <a active-class="block py-2 pl-3 pr-4 text-white bg-blue-500 rounded md:bg-transparent md:text-blue-300 md:p-0"
-              href="#"
+              href="#caracteristicas"
               class="block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-500 md:hover:bg-transparent md:hover:text-blue-300 md:p-0">Caracteristicas</a>
           </li>
           <li>
@@ -87,7 +100,7 @@ const dropdownNavbar = () => {
             </div>
           </li>
           <li>
-            <a href="#"
+            <a href="#paquetes"
               class="block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-500 md:hover:bg-transparent md:hover:text-blue-300 md:p-0">Paquetes</a>
           </li>
         </ul>
