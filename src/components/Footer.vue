@@ -1,8 +1,19 @@
 <script setup>
 import { ref } from 'vue';
+import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
+
+emailjs.init("SAIQQNv6oRUCEAad2");
+
 
 // Se utiliza ref para crear una referencia al modal
 const modal = ref(null);
+const name = ref("");
+const email = ref("");
+const phone = ref("");
+const info = ref("");
+const ciudad = ref("");
+const departamento = ref("");
 
 // Método para abrir el modal
 const openModal = () => {
@@ -12,6 +23,45 @@ const openModal = () => {
 // Método para cerrar el modal
 const closeModal = () => {
     modal.value.classList.add('hidden');
+};
+
+
+const enviarCorreo = () => {
+    const templateParams = {
+        from_name: name.value,
+        from_phone: phone.value,
+        from_email: email.value,
+        from_info: info.value,
+        from_ciudad: ciudad.value,
+        from_departamento: departamento.value
+    };
+
+    emailjs
+        .send("service_yyidnyt", "template_16few9i", templateParams)
+        .then((response) => {
+            console.log(
+                "Correo electrónico enviado:",
+                response.status,
+                response.text
+            );
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Correo enviado",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        })
+        .catch((error) => {
+            console.error("Error al enviar el correo electrónico:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Error al enviar el correo electrónico",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        });
 };
 </script>
 
@@ -38,7 +88,7 @@ const closeModal = () => {
                 <div class="flex items-center justify-center min-h-screen">
                     <div class="bg-white p-8 rounded">
                         <!-- Contenido del Modal -->
-                        <form>
+                        <form method="POST" @submit.prevent="enviarCorreo">
                             <div class="space-y-12">
                                 <div class="border-b border-gray-900/10 pb-12">
                                     <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
@@ -48,84 +98,61 @@ const closeModal = () => {
                                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                                         <div class="sm:col-span-3">
                                             <label for="first-name"
-                                                class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                                                class="block text-sm font-medium leading-6 text-gray-900">Nombre</label>
                                             <div class="mt-2">
-                                                <input type="text" name="first-name" id="first-name"
-                                                    autocomplete="given-name"
+                                                <input type="text" v-model="name" name="name" minlength="4"
+                                                    autocomplete="name" required
                                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                             </div>
                                         </div>
 
                                         <div class="sm:col-span-3">
-                                            <label for="last-name"
-                                                class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                                            <label for="phone"
+                                                class="block text-sm font-medium leading-6 text-gray-900">Numero de
+                                                Contacto</label>
                                             <div class="mt-2">
-                                                <input type="text" name="last-name" id="last-name"
-                                                    autocomplete="family-name"
+                                                <input type="tel" v-model="phone" name="phone" minlength="10" id="phone"
+                                                    autocomplete="tel" required
                                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                             </div>
                                         </div>
 
                                         <div class="sm:col-span-4">
                                             <label for="email"
-                                                class="block text-sm font-medium leading-6 text-gray-900">Email
-                                                address</label>
+                                                class="block text-sm font-medium leading-6 text-gray-900">Correo</label>
                                             <div class="mt-2">
-                                                <input id="email" name="email" type="email" autocomplete="email"
+                                                <input v-model="email" name="email" type="email" autocomplete="email"
+                                                    required
                                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                            </div>
-                                        </div>
-
-                                        <div class="sm:col-span-3">
-                                            <label for="country"
-                                                class="block text-sm font-medium leading-6 text-gray-900">Country</label>
-                                            <div class="mt-2">
-                                                <select id="country" name="country" autocomplete="country-name"
-                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                                                    <option>United States</option>
-                                                    <option>Canada</option>
-                                                    <option>Mexico</option>
-                                                </select>
                                             </div>
                                         </div>
 
                                         <div class="col-span-full">
-                                            <label for="street-address"
-                                                class="block text-sm font-medium leading-6 text-gray-900">Street
-                                                address</label>
+                                            <label for="info"
+                                                class="block text-sm font-medium leading-6 text-gray-900">Informacion</label>
                                             <div class="mt-2">
-                                                <input type="text" name="street-address" id="street-address"
-                                                    autocomplete="street-address"
-                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <textarea type="text" v-model="info" name="info" minlength="30" id="info"
+                                                    required
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"> </textarea>
                                             </div>
                                         </div>
 
                                         <div class="sm:col-span-2 sm:col-start-1">
                                             <label for="city"
-                                                class="block text-sm font-medium leading-6 text-gray-900">City</label>
+                                                class="block text-sm font-medium leading-6 text-gray-900">Ciudad</label>
                                             <div class="mt-2">
-                                                <input type="text" name="city" id="city" autocomplete="address-level2"
+                                                <input type="text" v-model="ciudad" name="ciudad" minlength="3" id="ciudad"
+                                                    autocomplete="address-level2" required
                                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                             </div>
                                         </div>
 
                                         <div class="sm:col-span-2">
-                                            <label for="region"
-                                                class="block text-sm font-medium leading-6 text-gray-900">State /
-                                                Province</label>
+                                            <label for="region" class="block text-sm font-medium leading-6 text-gray-900">
+                                                Departamento</label>
                                             <div class="mt-2">
-                                                <input type="text" name="region" id="region" autocomplete="address-level1"
-                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                            </div>
-                                        </div>
-
-                                        <div class="sm:col-span-2">
-                                            <label for="postal-code"
-                                                class="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal
-                                                code</label>
-                                            <div class="mt-2">
-                                                <input type="text" name="postal-code" id="postal-code"
-                                                    autocomplete="postal-code"
+                                                <input type="text" v-model="departamento" name="departamento" minlength="3"
+                                                    id="departamento" autocomplete="address-level1"
                                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                             </div>
                                         </div>
@@ -136,7 +163,7 @@ const closeModal = () => {
                                 <button @click="closeModal" type="button"
                                     class="text-sm font-semibold leading-6 text-gray-900 ">Cancel</button>
                                 <button type="submit"
-                                    class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                                    class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enviar</button>
                             </div>
                         </form>
                     </div>

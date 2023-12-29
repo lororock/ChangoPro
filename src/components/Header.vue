@@ -27,7 +27,7 @@ const changewhatsapp = () => {
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
       <a to="/" class="flex items-center">
         <img src="../assets/chango1.png" class="h-12 mr-2 " />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">ChanGo Pro</span>
+        <span class="hidden self-center text-2xl font-semibold whitespace-nowrap text-white lg:block">ChanGo Pro</span>
       </a>
       <div class="flex md:order-2">
         <a :href="`https://${whatsapp}.whatsapp.com/send?phone=%20573114012648&text=Hola+bienvenido+a+ChanGo+Pro`"
