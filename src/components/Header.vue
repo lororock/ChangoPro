@@ -15,7 +15,7 @@ const dropdownNavbar = () => {
 
 const changewhatsapp = () => {
   if (window.innerWidth <= 768) {
-    whatsapp.value = "app";
+    whatsapp.value = "api";
   } else {
     whatsapp.value = "web";
   }

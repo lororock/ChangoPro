@@ -117,7 +117,7 @@ const enviarCorreo = () => {
                                             </div>
                                         </div>
 
-                                        <div class="sm:col-span-4">
+                                        <div class="sm:col-span-6">
                                             <label for="email"
                                                 class="block text-sm font-medium leading-6 text-gray-900">Correo</label>
                                             <div class="mt-2">
@@ -137,7 +137,7 @@ const enviarCorreo = () => {
                                             </div>
                                         </div>
 
-                                        <div class="sm:col-span-2 sm:col-start-1">
+                                        <div class="sm:col-span-3 sm:col-start-1">
                                             <label for="city"
                                                 class="block text-sm font-medium leading-6 text-gray-900">Ciudad</label>
                                             <div class="mt-2">
@@ -147,7 +147,7 @@ const enviarCorreo = () => {
                                             </div>
                                         </div>
 
-                                        <div class="sm:col-span-2">
+                                        <div class="sm:col-span-3">
                                             <label for="region" class="block text-sm font-medium leading-6 text-gray-900">
                                                 Departamento</label>
                                             <div class="mt-2">
