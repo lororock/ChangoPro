@@ -1,11 +1,45 @@
+
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const isIntersecting = ref(false);
+const elementoRef = ref(null);
+
+onMounted(() => {
+    const elemento = elementoRef.value;
+
+    const opciones = {
+        threshold: 0.8, // Activar el observer cuando al menos el 50% del elemento esté visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            isIntersecting.value = entry.isIntersecting;
+        });
+    }, opciones);
+
+    if (elemento) {
+        observer.observe(elemento);
+    }
+
+    onUnmounted(() => {
+        if (elemento) {
+            observer.unobserve(elemento);
+        }
+    });
+});
+</script>
+
+
 <template>
     <section class="flex justify-center" id="paquetes">
-        <div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+        <div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16" ref="elementoRef">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-stretch md:grid-cols-3 md:gap-8">
-                <div class="divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm">
+                <div
+                    :class="isIntersecting ? 'divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm animate-flip-down animate-once animate-duration-[2000ms] animate-normal' : 'divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm'">
                     <div class="p-6 sm:px-8">
                         <h2 class="text-lg font-medium text-gray-900">
-                            Starter
+                            Starter {{ isIntersecting ? 'si' : 'no' }}
                             <span class="sr-only">Plan</span>
                         </h2>
 
@@ -17,10 +51,7 @@
                             <span class="text-sm font-medium text-gray-700">/month</span>
                         </p>
 
-                        <a class="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
-                            href="#">
-                            Get Started
-                        </a>
+
                     </div>
 
                     <div class="p-6 sm:px-8">
@@ -81,6 +112,10 @@
                                 <span class="text-gray-700"> Community access </span>
                             </li>
                         </ul>
+                        <a class="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
+                            href="#">
+                            Get Started
+                        </a>
                     </div>
                 </div>
 
