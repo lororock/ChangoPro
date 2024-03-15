@@ -1,4 +1,3 @@
-
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
@@ -6,10 +5,11 @@ const isIntersecting = ref(false);
 const elementoRef = ref(null);
 
 onMounted(() => {
+
     const elemento = elementoRef.value;
 
     const opciones = {
-        threshold: 0.8, // Activar el observer cuando al menos el 50% del elemento esté visible
+        threshold: 0.1, // Activar el observer cuando al menos el 50% del elemento esté visible
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -39,7 +39,7 @@ onMounted(() => {
                     :class="isIntersecting ? 'divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm animate-flip-down animate-once animate-duration-[2000ms] animate-normal' : 'divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm'">
                     <div class="p-6 sm:px-8">
                         <h2 class="text-lg font-medium text-gray-900">
-                            Starter {{ isIntersecting ? 'si' : 'no' }}
+                            Basic
                             <span class="sr-only">Plan</span>
                         </h2>
 
@@ -59,8 +59,8 @@ onMounted(() => {
 
                         <ul class="mt-2 space-y-2 sm:mt-4">
                             <li class="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="h-5 w-5 text-indigo-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-indigo-700">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                 </svg>
 
@@ -68,8 +68,8 @@ onMounted(() => {
                             </li>
 
                             <li class="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="h-5 w-5 text-indigo-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-indigo-700">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                 </svg>
 
@@ -77,8 +77,8 @@ onMounted(() => {
                             </li>
 
                             <li class="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="h-5 w-5 text-indigo-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-indigo-700">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                 </svg>
 
@@ -86,8 +86,8 @@ onMounted(() => {
                             </li>
 
                             <li class="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="h-5 w-5 text-red-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-red-700">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
 
@@ -95,8 +95,8 @@ onMounted(() => {
                             </li>
 
                             <li class="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="h-5 w-5 text-red-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-red-700">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
 
@@ -104,8 +104,8 @@ onMounted(() => {
                             </li>
 
                             <li class="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="h-5 w-5 text-red-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-red-700">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
 
@@ -119,7 +119,8 @@ onMounted(() => {
                     </div>
                 </div>
 
-                <div class="divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm">
+                <div
+                    :class="isIntersecting ? 'divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm animate-flip-down animate-once animate-duration-[2000ms] animate-normal' : 'divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm'">
                     <div class="p-6 sm:px-8">
                         <h2 class="text-lg font-medium text-gray-900">
                             Pro
@@ -129,15 +130,12 @@ onMounted(() => {
                         <p class="mt-2 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
                         <p class="mt-2 sm:mt-4">
-                            <strong class="text-3xl font-bold text-gray-900 sm:text-4xl"> 30$ </strong>
+                            <strong class="text-3xl font-bold text-gray-900 sm:text-4xl"> 20$ </strong>
 
                             <span class="text-sm font-medium text-gray-700">/month</span>
                         </p>
 
-                        <a class="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
-                            href="#">
-                            Get Started
-                        </a>
+
                     </div>
 
                     <div class="p-6 sm:px-8">
@@ -145,8 +143,8 @@ onMounted(() => {
 
                         <ul class="mt-2 space-y-2 sm:mt-4">
                             <li class="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="h-5 w-5 text-indigo-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-indigo-700">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                 </svg>
 
@@ -198,10 +196,15 @@ onMounted(() => {
                                 <span class="text-gray-700"> Community access </span>
                             </li>
                         </ul>
+                        <a class="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
+                            href="#">
+                            Get Started
+                        </a>
                     </div>
                 </div>
 
-                <div class="divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm">
+                <div
+                    :class="isIntersecting ? 'divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm animate-flip-down animate-once animate-duration-[2000ms] animate-normal' : 'divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm'">
                     <div class="p-6 sm:px-8">
                         <h2 class="text-lg font-medium text-gray-900">
                             Enterprise
@@ -211,15 +214,12 @@ onMounted(() => {
                         <p class="mt-2 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
                         <p class="mt-2 sm:mt-4">
-                            <strong class="text-3xl font-bold text-gray-900 sm:text-4xl"> 100$ </strong>
+                            <strong class="text-3xl font-bold text-gray-900 sm:text-4xl"> 20$ </strong>
 
                             <span class="text-sm font-medium text-gray-700">/month</span>
                         </p>
 
-                        <a class="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
-                            href="#">
-                            Get Started
-                        </a>
+
                     </div>
 
                     <div class="p-6 sm:px-8">
@@ -280,6 +280,10 @@ onMounted(() => {
                                 <span class="text-gray-700"> Community access </span>
                             </li>
                         </ul>
+                        <a class="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
+                            href="#">
+                            Get Started
+                        </a>
                     </div>
                 </div>
             </div>
